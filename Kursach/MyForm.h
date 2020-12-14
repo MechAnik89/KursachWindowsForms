@@ -34,7 +34,7 @@ namespace Kursach {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::ListBox^ ShifrName;
+
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button1;
@@ -54,25 +54,11 @@ namespace Kursach {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->ShifrName = (gcnew System::Windows::Forms::ListBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->ShifrBox = (gcnew System::Windows::Forms::ComboBox());
 			this->SuspendLayout();
-			// 
-			// ShifrName
-			// 
-			this->ShifrName->FormattingEnabled = true;
-			this->ShifrName->ItemHeight = 16;
-			this->ShifrName->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
-				L"Шифратор шифра Цезаря", L"Шифратор шифра Виженера",
-					L"Шифратор шифра Энигма", L"Дешифратор шифра Цезаря", L"Дешифратор шифра Виженера", L"Дешифратор шифра Энигма"
-			});
-			this->ShifrName->Location = System::Drawing::Point(15, 119);
-			this->ShifrName->Name = L"ShifrName";
-			this->ShifrName->Size = System::Drawing::Size(207, 100);
-			this->ShifrName->TabIndex = 0;
 			// 
 			// label2
 			// 
@@ -109,9 +95,9 @@ namespace Kursach {
 				L"Шифратор шифра Цезаря", L"Шифратор шифра Виженера",
 					L"Шифратор шифра Энигма", L"Дешифратор шифра Цезаря", L"Дешифратор шифра Виженера", L"Дешифратор шифра Энигма"
 			});
-			this->ShifrBox->Location = System::Drawing::Point(247, 119);
+			this->ShifrBox->Location = System::Drawing::Point(24, 58);
 			this->ShifrBox->Name = L"ShifrBox";
-			this->ShifrBox->Size = System::Drawing::Size(121, 24);
+			this->ShifrBox->Size = System::Drawing::Size(253, 24);
 			this->ShifrBox->TabIndex = 5;
 			this->ShifrBox->Text = L"Выберите";
 			// 
@@ -124,7 +110,6 @@ namespace Kursach {
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->ShifrName);
 			this->Name = L"MyForm";
 			this->Text = L"Курсовая работа. Тубольцев Илья 1845к";
 			this->ResumeLayout(false);
