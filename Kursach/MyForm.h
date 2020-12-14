@@ -80,6 +80,7 @@ namespace Kursach {
 			// 
 			// button1
 			// 
+			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button1->Location = System::Drawing::Point(332, 13);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
@@ -90,12 +91,13 @@ namespace Kursach {
 			// 
 			// ShifrBox
 			// 
+			this->ShifrBox->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->ShifrBox->FormattingEnabled = true;
 			this->ShifrBox->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
 				L"Шифратор шифра Цезаря", L"Шифратор шифра Виженера",
 					L"Шифратор шифра Энигма", L"Дешифратор шифра Цезаря", L"Дешифратор шифра Виженера", L"Дешифратор шифра Энигма"
 			});
-			this->ShifrBox->Location = System::Drawing::Point(24, 58);
+			this->ShifrBox->Location = System::Drawing::Point(332, 42);
 			this->ShifrBox->Name = L"ShifrBox";
 			this->ShifrBox->Size = System::Drawing::Size(253, 24);
 			this->ShifrBox->TabIndex = 5;
