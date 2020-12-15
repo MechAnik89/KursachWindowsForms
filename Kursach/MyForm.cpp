@@ -3,7 +3,8 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
-
+std::string inputstr, outputstr;
+std::string fileinput, fileoutput;
 int key = 0;
 bool Check = false;
 
@@ -18,24 +19,23 @@ void main(array<String^>^ args)
 
 System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	Convert_String_to_string(textBox1->Text, fileinput);
+	Convert_String_to_string(textBox2->Text, fileoutput);
+	std::ifstream input(fileinput);
+	std::ofstream output(fileoutput);
 	if (textBox1->Text == "" && textBox2->Text == "") {
 		MessageBox::Show("Введите название файла!", "Внимание!");
 	}
 	else {
-
 		if (textBox3->Text != "") {
 			key = System::Convert::ToInt32(textBox3->Text);
 		}
 		else {
 			MessageBox::Show("Заполните все поля!", "Ошибка!");
 		}
-		std::string inputstr, outputstr;
-		std::string fileinput, fileoutput;
-		std::ifstream input(fileinput);
-		std::ofstream output(fileoutput);
+
 		if (input) {
-			input >> inputstr;
-			MessageBox::Show("Файлы успешно считаны", "Успех!");
+			getline(input,inputstr);
 			Check = true;
 		}
 		else {
@@ -56,7 +56,8 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			MessageBox::Show("Вы выбрали шифратор шифра Энигмы", "Проверка comboBox");
 			break;
 		case 3:
-			MessageBox::Show("Вы выбрали дешифратор шифра Цезаря", "Проверка comboBox");
+			outputstr = Decrypt_Caesar(inputstr, key);
+			output << outputstr;
 			break;
 		case 4:
 			MessageBox::Show("Вы выбрали дешифратор шифра Виженера", "Проверка comboBox");

@@ -41,7 +41,7 @@ namespace Kursach {
 	private: System::Windows::Forms::ComboBox^ ShifrBox;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
-	private: System::Windows::Forms::Button^ button2;
+
 	private: System::Windows::Forms::TextBox^ textBox3;
 	private: System::Windows::Forms::Label^ label3;
 	protected:
@@ -65,7 +65,6 @@ namespace Kursach {
 			this->ShifrBox = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
@@ -150,7 +149,6 @@ namespace Kursach {
 			this->ClientSize = System::Drawing::Size(604, 147);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox3);
-			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->ShifrBox);
