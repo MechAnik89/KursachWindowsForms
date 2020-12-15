@@ -18,17 +18,40 @@ void main(array<String^>^ args)
 
 System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
+	if (textBox1->Text == "" && textBox2->Text == "") {
+		MessageBox::Show("Введите название файла!", "Внимание!");
+	}
+	else {
+
+		if (textBox3->Text != "") {
+			key = System::Convert::ToInt32(textBox3->Text);
+		}
+		else {
+			MessageBox::Show("Заполните все поля!", "Ошибка!");
+		}
+		std::string inputstr, outputstr;
+		std::string fileinput, fileoutput;
+		std::ifstream input(fileinput);
+		std::ofstream output(fileoutput);
+		if (input) {
+			input >> inputstr;
+			MessageBox::Show("Файлы успешно считаны", "Успех!");
+			Check = true;
+		}
+		else {
+			MessageBox::Show("Один из файлов не найден!", "Ошибка!");
+		}
+	}
 	if (Check) {
 		int shifrBoxIndex = ShifrBox->SelectedIndex;
 		switch (shifrBoxIndex) {
-		//case 0:
-		//	outputstr=Crypt_Caesar(inputstr, key);
-		//	output << outputstr;
-		//	break;
-		//case 1:
-		//	outputstr = Decrypt_Caesar(inputstr, key);
-		//	output << outputstr;
-		//	break;
+		case 0:
+			outputstr=Crypt_Caesar(inputstr, key);
+			output << outputstr;
+			break;
+		case 1:
+			MessageBox::Show("Вы выбрали дешифратор шифра Виженера", "Проверка comboBox");
+			break;
 		case 2:
 			MessageBox::Show("Вы выбрали шифратор шифра Энигмы", "Проверка comboBox");
 			break;
@@ -48,40 +71,5 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 	}
 	else {
 		MessageBox::Show("Файлы не были считаны!", "Ошибка!");
-	}
-}
-
-System::Void Kursach::MyForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
-{
-	
-	if (textBox1->Text == "" && textBox2->Text == "") {
-
-		MessageBox::Show("Введите название файла!", "Внимание!");
-
-	}
-	else {
-		
-		if (textBox3->Text != "") {
-			key = System::Convert::ToInt32(textBox3->Text);
-		}
-		else {
-			MessageBox::Show("Заполните все поля!", "Ошибка!");
-		}
-		std::string inputstr, outputstr;
-		std::string fileinput, fileoutput;
-		std::ifstream input(fileinput);
-		std::ofstream output(fileoutput);
-		if (input) {
-			
-			input >> inputstr;
-			MessageBox::Show("Файлы успешно считаны","Успех!");
-			Check = true;
-
-		}
-		else {
-
-			MessageBox::Show("Один из файлов не найден!", "Ошибка!");
-
-		}
 	}
 }

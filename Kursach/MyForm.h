@@ -127,17 +127,6 @@ namespace Kursach {
 			this->textBox2->Size = System::Drawing::Size(111, 22);
 			this->textBox2->TabIndex = 7;
 			// 
-			// button2
-			// 
-			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button2->Location = System::Drawing::Point(15, 123);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(120, 23);
-			this->button2->TabIndex = 8;
-			this->button2->Text = L"Read Files";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
-			// 
 			// textBox3
 			// 
 			this->textBox3->Location = System::Drawing::Point(15, 92);
@@ -176,6 +165,5 @@ namespace Kursach {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
