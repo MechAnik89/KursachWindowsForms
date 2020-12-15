@@ -132,9 +132,9 @@ namespace Kursach {
 			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->button2->Location = System::Drawing::Point(15, 123);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
+			this->button2->Size = System::Drawing::Size(120, 23);
 			this->button2->TabIndex = 8;
-			this->button2->Text = L"—читать файл";
+			this->button2->Text = L"—читать файлы";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
