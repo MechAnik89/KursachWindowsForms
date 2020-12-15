@@ -9,6 +9,7 @@
 #include <iostream>
 #include <conio.h>
 #include<fstream>
+#include"MyForm.h"
 void Crypt_Vigenere();
 void Decrypt_Vigenere();
 void Crypt_Caesar();

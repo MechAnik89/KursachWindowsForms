@@ -40,3 +40,22 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 		break;
 	}
 }
+
+System::Void Kursach::MyForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	
+	//if (textBox1->Text == "" || textBox2->Text == "") {
+
+	//	MessageBox::Show("Введите название файла!", "Внимание!");
+
+	//}
+	//else {
+	return System::Void();
+	//	std::string fileinput,fileoutput;
+	//	Convert_String_to_string(textBox1->Text, fileinput);
+	//	Convert_String_to_string(textBox2->Text, fileoutput);
+
+	//	MessageBox::Show("Вы ввели", "Успех!");
+
+	//}
+}

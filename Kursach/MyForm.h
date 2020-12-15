@@ -87,7 +87,7 @@ namespace Kursach {
 			// button1
 			// 
 			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->Location = System::Drawing::Point(332, 13);
+			this->button1->Location = System::Drawing::Point(332, 92);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 4;
@@ -111,35 +111,34 @@ namespace Kursach {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(65, 113);
+			this->textBox1->Location = System::Drawing::Point(15, 42);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(250, 22);
+			this->textBox1->Size = System::Drawing::Size(110, 22);
 			this->textBox1->TabIndex = 6;
-			this->textBox1->Text = L"Введите название входного файла";
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(65, 155);
+			this->textBox2->Location = System::Drawing::Point(160, 42);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(250, 22);
+			this->textBox2->Size = System::Drawing::Size(111, 22);
 			this->textBox2->TabIndex = 7;
-			this->textBox2->Text = L"Введите название выходного файла";
 			// 
 			// button2
 			// 
 			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button2->Location = System::Drawing::Point(397, 112);
+			this->button2->Location = System::Drawing::Point(15, 92);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 8;
-			this->button2->Text = L"Запуск";
+			this->button2->Text = L"Считать файл";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1232, 382);
+			this->ClientSize = System::Drawing::Size(604, 147);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
@@ -155,5 +154,6 @@ namespace Kursach {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
