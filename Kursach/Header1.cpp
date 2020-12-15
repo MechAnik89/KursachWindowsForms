@@ -160,26 +160,6 @@ std::string Convert_String_to_string(System::String^ s, std::string& os)
     Marshal::FreeHGlobal(IntPtr((void*)chars));
     
     return os;
-}
-System::String^ Convert_string_to_String(std::string& os, System::String^ s)
-{
-    s = gcnew System::String(os.c_str());
-    return s;
-}
-void ReadFiles(std::string fileinput, std::string fileoutput)
-{
-    ifstream input(fileinput);
-    ifstream output(fileoutput);
 
-    if (input || output){
-
-
-
-    }
-    else {
-
-        MessageBox::Show("Один из файлов не найден!", "Ошибка!");
-
-    }
 }
 #pragma warning(pop)

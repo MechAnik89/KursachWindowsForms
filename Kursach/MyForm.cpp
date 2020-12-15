@@ -3,10 +3,7 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
-std::string inputstr, outputstr;
-std::string fileinput, fileoutput;
-std::ifstream input(fileinput);
-std::ofstream output(fileoutput);
+
 int key = 0;
 bool Check = false;
 
@@ -24,13 +21,14 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 	if (Check) {
 		int shifrBoxIndex = ShifrBox->SelectedIndex;
 		switch (shifrBoxIndex) {
-		case 0:
-			outputstr=Crypt_Caesar(inputstr, key);
-			output << outputstr;
-			break;
-		case 1:
-			MessageBox::Show("Вы выбрали шифратор шифра Виженера", "Проверка comboBox");
-			break;
+		//case 0:
+		//	outputstr=Crypt_Caesar(inputstr, key);
+		//	output << outputstr;
+		//	break;
+		//case 1:
+		//	outputstr = Decrypt_Caesar(inputstr, key);
+		//	output << outputstr;
+		//	break;
 		case 2:
 			MessageBox::Show("Вы выбрали шифратор шифра Энигмы", "Проверка comboBox");
 			break;
@@ -63,14 +61,14 @@ System::Void Kursach::MyForm::button2_Click(System::Object^ sender, System::Even
 	}
 	else {
 		
-		Convert_String_to_string(textBox1->Text, fileinput);
-		Convert_String_to_string(textBox2->Text, fileoutput);
 		if (textBox3->Text != "") {
 			key = System::Convert::ToInt32(textBox3->Text);
 		}
 		else {
 			MessageBox::Show("Заполните все поля!", "Ошибка!");
 		}
+		std::string inputstr, outputstr;
+		std::string fileinput, fileoutput;
 		std::ifstream input(fileinput);
 		std::ofstream output(fileoutput);
 		if (input) {

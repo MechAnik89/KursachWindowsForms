@@ -91,11 +91,11 @@ namespace Kursach {
 			// button1
 			// 
 			this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button1->Location = System::Drawing::Point(332, 92);
+			this->button1->Location = System::Drawing::Point(315, 92);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 4;
-			this->button1->Text = L"Запуск";
+			this->button1->Text = L"Run";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -107,11 +107,11 @@ namespace Kursach {
 				L"Шифратор шифра Цезаря", L"Шифратор шифра Виженера",
 					L"Шифратор шифра Энигма", L"Дешифратор шифра Цезаря", L"Дешифратор шифра Виженера", L"Дешифратор шифра Энигма"
 			});
-			this->ShifrBox->Location = System::Drawing::Point(332, 42);
+			this->ShifrBox->Location = System::Drawing::Point(315, 40);
 			this->ShifrBox->Name = L"ShifrBox";
 			this->ShifrBox->Size = System::Drawing::Size(253, 24);
 			this->ShifrBox->TabIndex = 5;
-			this->ShifrBox->Text = L"Выберите";
+			this->ShifrBox->Text = L"Выберите тип операции";
 			// 
 			// textBox1
 			// 
@@ -134,7 +134,7 @@ namespace Kursach {
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(120, 23);
 			this->button2->TabIndex = 8;
-			this->button2->Text = L"Считать файлы";
+			this->button2->Text = L"Read Files";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
