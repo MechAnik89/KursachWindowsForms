@@ -12,8 +12,8 @@
 #include"MyForm.h"
 void Crypt_Vigenere();
 void Decrypt_Vigenere();
-void Crypt_Caesar();
-void Decrypt_Caesar();
+std::string Crypt_Caesar(std::string buff,int key);
+std::string Decrypt_Caesar(std::string buff, int key);
 void ReadFile(std::string filename);
 //Конвертируем System::string ^ в std::string 
 std::string Convert_String_to_string(System::String^ s, std::string& os);

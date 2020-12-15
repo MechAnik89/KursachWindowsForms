@@ -44,18 +44,35 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 System::Void Kursach::MyForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
 	
-	//if (textBox1->Text == "" || textBox2->Text == "") {
+	if (textBox1->Text == "" && textBox2->Text == "") {
 
-	//	MessageBox::Show("Введите название файла!", "Внимание!");
+		MessageBox::Show("Введите название файла!", "Внимание!");
 
-	//}
-	//else {
-	return System::Void();
-	//	std::string fileinput,fileoutput;
-	//	Convert_String_to_string(textBox1->Text, fileinput);
-	//	Convert_String_to_string(textBox2->Text, fileoutput);
+	}
+	else {
+		std::string fileinput,fileoutput;
+		std::string inputstr, outputstr;
+		Convert_String_to_string(textBox1->Text, fileinput);
+		Convert_String_to_string(textBox2->Text, fileoutput);
+		if (textBox3->Text != "") {
+			int key = System::Convert::ToInt32(textBox3->Text);
+		}
+		else {
+			MessageBox::Show("Заполните все поля!", "Ошибка!");
+		}
+		std::ifstream input(fileinput);
+		std::ofstream output(fileoutput);
 
-	//	MessageBox::Show("Вы ввели", "Успех!");
+		if (input && output) {
+			
+			input >> inputstr;
+			MessageBox::Show("Файлы успешно считаны","Успех!");
 
-	//}
+		}
+		else {
+
+			MessageBox::Show("Один из файлов не найден!", "Ошибка!");
+
+		}
+	}
 }

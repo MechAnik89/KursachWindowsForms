@@ -137,49 +137,19 @@ void Decrypt_Vigenere() {
     cout << "Зашифрованное слово: " << B << endl;
 }
 
-void Crypt_Caesar() {
+string Crypt_Caesar(string buff, int key) {
 
-    int key = 0;
-    cout << "Введите ключ" << endl;
-    cin >> key;
-    char* buff = new char;
-    cout << "Введите сообщение,которое будет закодированно" << endl;
-    cin >> buff;
-
-    for (int i = 0; i < strlen(buff); i++)
+    for (int i = 0; i < buff.length(); i++)
         buff[i] += key;
-    cout << buff << endl;
+    return buff;
 
 }
 
-void Decrypt_Caesar() {
+string Decrypt_Caesar(string buff, int key) {
 
-
-    int key = 0;
-    cout << "Введите ключ" << endl;
-    cin >> key;
-    char* buff = new char;
-    cout << "Введите сообщение,которое будет расшифрованно" << endl;
-    cin >> buff;
-
-    cout << "Decode: " << endl;
-    for (int i = 0; i < strlen(buff); i++)
+    for (int i = 0; i < buff.length(); i++)
         buff[i] -= key;
-    cout << buff << endl;
-
-}
-void ReadFile(std::string filename)
-{
-    ifstream inputfile(filename);
-
-    if (inputfile) {
-
-        MessageBox::Show("Файл прочитан!", "Успех!");
-
-    }
-    else {
-        MessageBox::Show("Такого файла не существует!","Ошибка!");
-    }
+    return buff;
 
 }
 std::string Convert_String_to_string(System::String^ s, std::string& os)
@@ -195,5 +165,21 @@ System::String^ Convert_string_to_String(std::string& os, System::String^ s)
 {
     s = gcnew System::String(os.c_str());
     return s;
+}
+void ReadFiles(std::string fileinput, std::string fileoutput)
+{
+    ifstream input(fileinput);
+    ifstream output(fileoutput);
+
+    if (input || output){
+
+
+
+    }
+    else {
+
+        MessageBox::Show("Один из файлов не найден!", "Ошибка!");
+
+    }
 }
 #pragma warning(pop)

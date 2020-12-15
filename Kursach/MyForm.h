@@ -42,6 +42,8 @@ namespace Kursach {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::TextBox^ textBox3;
+	private: System::Windows::Forms::Label^ label3;
 	protected:
 
 	private:
@@ -64,6 +66,8 @@ namespace Kursach {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label2
@@ -126,7 +130,7 @@ namespace Kursach {
 			// button2
 			// 
 			this->button2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->button2->Location = System::Drawing::Point(15, 92);
+			this->button2->Location = System::Drawing::Point(15, 123);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 8;
@@ -134,11 +138,29 @@ namespace Kursach {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(15, 92);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(110, 22);
+			this->textBox3->TabIndex = 9;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(12, 72);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(67, 17);
+			this->label3->TabIndex = 10;
+			this->label3->Text = L"Input Key";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(604, 147);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
