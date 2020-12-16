@@ -28,7 +28,9 @@ std::string Crypt_Vigenere(std::string text, std::string key) {
         }
         else if (isupper(c))
         {
-            c = (((c - 'A') + (key[i++ % key.size()] - 'A')) % 26) + 'A';
+            c = tolower(c);//реализовал это из-за того, что функция выше по непонятным причинам не работала с большими буквами при замене а на А
+            c = (((c - 'a') + (key[i++ % key.size()] - 'a')) % 26) + 'a';
+            c = toupper(c);
         }
     }
     return result;
