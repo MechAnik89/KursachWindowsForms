@@ -10,131 +10,38 @@
 #include <string>
 #include <iostream>
 #include <conio.h>
+#include<cctype>
 #include<fstream>
+static const size_t npos = -1;
 using namespace std;
 using namespace System;
 using namespace System::Windows::Forms;
-void Crypt_Vigenere() {
-
-    string B, C, D = "";
-    string A = "abcdefghijklmnopqrstuvwxyz"; //наш алфавит
-    setlocale(LC_ALL, "Rus");
-    cout << "Введите слово: ";
-    cin >> B;
-    cout << "Введите ключ: ";
-    cin >> C;
-    int* F = new int[B.size()];
-    int* G = new int[B.size()];
-    int c = C.size(); //делаем замену переменных для удобства
-    int b = B.size();
-    //Первое условие. Если длина вводимого слова больше, либо равна длине ключа
-    if (b >= c)
+std::string Crypt_Vigenere(std::string text, std::string key) {
+    string result = text;
+    int i = 0;
+    for (auto& c : result)
     {
-        for (int i = 0; i < (b / c); i++)
+        /*проверяем буквы на нижний или верхний регистр*/
+        if (islower(c))
         {
-            D = D + C; //Записываем целое количество ключа. Растягивая ключ по длине слова.
+            c = (((c - 'a') + (key[i++ % key.size()] - 'a')) % 26) + 'a';
         }
-        for (int j = 0; j < (b % c); j++)
+        else if (isupper(c))
         {
-            D = D + C[j];
+            c = (((c - 'A') + (key[i++ % key.size()] - 'A')) % 26) + 'A';
         }
     }
-    else  //Иначе если ключ длиннее слова, укорачиваем ключ до длины слова.
-    {
-        for (int s = 0; s < b; s++)
-        {
-            D = D + B[s];
-        }
-    }
-    //cout << D << endl;
-    for (int k = 0; k < b; k++)
-    {
-        for (int n = 0; n < 26; n++)
-        {
-            if (B[k] == A[n])
-            {
-                F[k] = n;
-            }
-
-            if (D[k] == A[n])
-            {
-                G[k] = n;
-            } //Здесь мы уже начинаем шифровать. Смысл заключается втом, что мы ищем номер буквы во вводимом ключе и номере, а после чего записываем их в массив
-
-        }
-    }
-
-    int e = 0; //Для суммы номеров символов. Чтобы при достижении 26 буквы, программа шла по кругу, начиная с первого номера
-    for (int u = 0; u < b; u++)
-    {
-        e = ((F[u] + G[u]) % 26);
-        B[u] = A[e];
-    }
-
-    cout << "Зашифрованное слово: " << B << endl;
-
+    return result;
 }
 
-void Decrypt_Vigenere() {
-
-    string B, C, D = "";
-    string A = "abcdefghijklmnopqrstuvwxyz"; //наш алфавит
-    setlocale(LC_ALL, "Rus");
-    cout << "Введите слово: ";
-    cin >> B;
-    cout << "Введите ключ: ";
-    cin >> C;
-    int* F = new int[B.size()];
-    int* G = new int[B.size()];
-    int c = C.size(); //делаем замену переменных для удобства
-    int b = B.size();
-    //Первое условие. Если длина вводимого слова больше, либо равна длине ключа
-    if (b >= c)
-    {
-        for (int i = 0; i < (b / c); i++)
+string Decrypt_Vigenere(string str,string key) {
+        string k = key;
+        for (auto& c : k)
         {
-            D = D + C; //Записываем целое количество ключа. Растягивая ключ по длине слова.
+            c = tolower(c) - 'a' - 1;
+            c = 'z' - c;
         }
-        for (int j = 0; j < (b % c); j++)
-        {
-            D = D + C[j];
-        }
-    }
-    else  //Иначе если ключ длиннее слова, укорачиваем ключ до длины слова.
-    {
-        for (int s = 0; s < b; s++)
-        {
-            D = D + B[s];
-        }
-    }
-    //cout << D << endl;
-    for (int k = 0; k < b; k++)
-    {
-        for (int n = 0; n < 26; n++)
-        {
-            if (B[k] == A[n])
-            {
-                F[k] = n;
-            }
-
-            if (D[k] == A[n])
-            {
-                G[k] = n;
-            } //Здесь мы уже начинаем шифровать. Смысл заключается втом, что мы ищем номер буквы во вводимом ключе и номере, а после чего записываем их в массив
-
-        }
-    }
-
-    int e = 0; //Для суммы номеров символов. Чтобы при достижении 26 буквы, программа шла по кругу, начиная с первого номера
-
-    for (int u = 0; u < b; u++)
-    {
-        e = ((F[u] - G[u]));
-        if (e < 0)
-            e += 26;
-        B[u] = A[e];
-    }
-    cout << "Зашифрованное слово: " << B << endl;
+        return Crypt_Vigenere(str, k);
 }
 
 string Crypt_Caesar(string buff, int key) {

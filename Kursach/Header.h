@@ -10,8 +10,8 @@
 #include <conio.h>
 #include<fstream>
 #include"MyForm.h"
-void Crypt_Vigenere();
-void Decrypt_Vigenere();
+std::string Crypt_Vigenere(std::string B,std::string C);
+std::string Decrypt_Vigenere(std::string B, std::string C);
 std::string Crypt_Caesar(std::string buff,int key);
 std::string Decrypt_Caesar(std::string buff, int key);
 //Конвертируем System::string ^ в std::string 

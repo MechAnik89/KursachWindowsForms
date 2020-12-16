@@ -3,9 +3,10 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
-std::string inputstr, outputstr;
+std::string inputstr="", outputstr="";
 std::string fileinput, fileoutput;
 int key = 0;
+std::string keyvishz = "";
 bool Check = false;
 
 [STAThreadAttribute]
@@ -27,8 +28,11 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 		MessageBox::Show("Введите название файла!", "Внимание!");
 	}
 	else {
-		if (textBox3->Text != "") {
+		if (textBox3->Text != "" && (ShifrBox->SelectedIndex != 1 && ShifrBox->SelectedIndex != 4)) {
 			key = System::Convert::ToInt32(textBox3->Text);
+		}
+		else if(textBox3->Text != "" && (ShifrBox->SelectedIndex == 1 || ShifrBox->SelectedIndex == 4)) {
+			keyvishz = Convert_String_to_string(textBox3->Text, keyvishz);
 		}
 		else {
 			MessageBox::Show("Заполните все поля!", "Ошибка!");
@@ -50,7 +54,8 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			output << outputstr;
 			break;
 		case 1:
-			MessageBox::Show("Вы выбрали дешифратор шифра Виженера", "Проверка comboBox");
+			outputstr = Crypt_Vigenere(inputstr, keyvishz);
+			output << outputstr;
 			break;
 		case 2:
 			MessageBox::Show("Вы выбрали шифратор шифра Энигмы", "Проверка comboBox");
@@ -60,7 +65,8 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			output << outputstr;
 			break;
 		case 4:
-			MessageBox::Show("Вы выбрали дешифратор шифра Виженера", "Проверка comboBox");
+			outputstr = Decrypt_Vigenere(inputstr, keyvishz);
+			output << outputstr;
 			break;
 		case 5:
 			MessageBox::Show("Вы выбрали дешифратор шифра Энигмы", "Проверка comboBox");
@@ -73,4 +79,30 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 	else {
 		MessageBox::Show("Файлы не были считаны!", "Ошибка!");
 	}
+}
+
+System::Void Kursach::MyForm::button2_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (textBox1->Text != "" && textBox2->Text != "") {
+
+		textBox4->Text = textBox1->Text;
+		textBox1->Text = textBox2->Text;
+		textBox2->Text = textBox4->Text;
+
+	}
+}
+
+System::Void Kursach::MyForm::button3_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	textBox1->Text = "";
+	textBox2->Text = "";
+	textBox3->Text = "";
+}
+
+System::Void Kursach::MyForm::button4_Click(System::Object^ sender, System::EventArgs^ e)
+{
+
+	textBox1->Text = "input.txt";
+	textBox2->Text = "output.txt";
+
 }
