@@ -154,7 +154,7 @@ namespace Kursach {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(15, 65);
+			this->button2->Location = System::Drawing::Point(15, 72);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(77, 35);
 			this->button2->TabIndex = 11;
@@ -185,11 +185,11 @@ namespace Kursach {
 			// 
 			this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button4->Location = System::Drawing::Point(104, 88);
+			this->button4->Location = System::Drawing::Point(305, 12);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(21, 16);
+			this->button4->Size = System::Drawing::Size(155, 190);
 			this->button4->TabIndex = 14;
-			this->button4->Text = L"Clear";
+			this->button4->Text = L"Debug";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
@@ -197,7 +197,7 @@ namespace Kursach {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(285, 211);
+			this->ClientSize = System::Drawing::Size(486, 215);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
