@@ -16,5 +16,5 @@ std::string Crypt_Caesar(std::string buff,int key);
 std::string Decrypt_Caesar(std::string buff, int key);
 //Конвертируем System::string ^ в std::string 
 std::string Convert_String_to_string(System::String^ s, std::string& os);
-std::string Enigma(const char* ct);
+std::string Enigma(std::string ct, std::string keyEnigma);
 #pragma warning(pop)

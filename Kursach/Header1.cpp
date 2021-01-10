@@ -77,7 +77,6 @@ char rotors[3][27] =
   "BDFHJLCPRTXVZNYEIWGAKMUSQO"
 };
 char reflector[] = "YRUHQSLDPXNGOKMIEBFZCWVJAT";
-char key[] = "ABC";
 
 
 long mod26(long a)
@@ -96,7 +95,7 @@ int indexof(char* array, int find)
     return strchr(array, find) - array;
 }
 
-string Enigma(const char* ct)
+string Enigma(string ct, string key)
 {
     // Sets initial permutation
     int L = li(key[0]);
@@ -105,7 +104,7 @@ string Enigma(const char* ct)
 
     string output;
 
-    for (int x = 0; x < strlen(ct); x++) {
+    for (int x = 0; x < ct.length(); x++) {
         int ct_letter = li(ct[x]);
 
         // Step right rotor on every iteration

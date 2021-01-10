@@ -1,11 +1,15 @@
 #include "MyForm.h"
 #include "Header.h"
+#include <algorithm>
+#include <iterator>
+#include <cctype>
 
 using namespace System;
 using namespace System::Windows::Forms;
 std::string inputstr="", outputstr="";
 std::string fileinput, fileoutput;
 int key = 0;
+std::string keyEnigma = "";
 std::string keyvishz = "";
 bool Check = false;
 
@@ -28,18 +32,21 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 		MessageBox::Show("Введите название файла!", "Внимание!");
 	}
 	else {
-		if (textBox3->Text != "" && (ShifrBox->SelectedIndex != 1 && ShifrBox->SelectedIndex != 4)) {
+		if (textBox3->Text != "" && (ShifrBox->SelectedIndex == 1 || ShifrBox->SelectedIndex == 4)) {
 			key = System::Convert::ToInt32(textBox3->Text);
 		}
-		else if(textBox3->Text != "" && (ShifrBox->SelectedIndex == 1 || ShifrBox->SelectedIndex == 4)) {
+		else if (textBox3->Text != "" && (ShifrBox->SelectedIndex == 0 || ShifrBox->SelectedIndex == 3)) {
 			keyvishz = Convert_String_to_string(textBox3->Text, keyvishz);
+		}
+		else if (textBox3->Text != "" && (ShifrBox->SelectedIndex == 2 || ShifrBox->SelectedIndex == 5)) {
+			keyEnigma = Convert_String_to_string(textBox3->Text, keyEnigma);;
 		}
 		else {
 			MessageBox::Show("Заполните все поля!", "Ошибка!");
 		}
 
 		if (input) {
-			getline(input,inputstr);
+			getline(input, inputstr);
 			Check = true;
 		}
 		else {
@@ -47,6 +54,7 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 		}
 	}
 	if (Check) {
+		int size = inputstr.size();
 		int shifrBoxIndex = ShifrBox->SelectedIndex;
 		switch (shifrBoxIndex) {
 		case 0:
@@ -58,7 +66,14 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			output << outputstr;
 			break;
 		case 2:
-			MessageBox::Show("Вы выбрали шифратор шифра Энигмы", "Проверка comboBox");
+			//for (int i = 0; i < size; i++) {
+			//	if (72 < (int)inputstr[i] < 99)
+			//	{
+			//		inputstr[i] = (int)inputstr[i] - 32;
+			//	}
+			//}
+			outputstr = Enigma(inputstr, keyEnigma);
+			output << outputstr;
 			break;
 		case 3:
 			outputstr = Decrypt_Caesar(inputstr, key);
@@ -69,7 +84,14 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			output << outputstr;
 			break;
 		case 5:
-			MessageBox::Show("Вы выбрали дешифратор шифра Энигмы", "Проверка comboBox");
+/*			for (int i = 0; i < size; i++) {
+				if (72 < (int)inputstr[i] < 99)
+				{
+					inputstr[i] = (int)inputstr[i] - 32;
+				}
+			}	*/		
+			outputstr = Enigma(inputstr, keyEnigma);
+			output << outputstr;		
 			break;
 		default:
 			MessageBox::Show("Вы не выбрали тип операции!", "Ошибка!");
