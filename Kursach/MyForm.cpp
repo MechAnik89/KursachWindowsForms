@@ -15,9 +15,10 @@ int key = 0;
 std::string keyEnigma = "";
 std::string keyvishz = "";
 bool Check = false;
-bool CheckOpVE = false;
-bool CheckSuc = false;
+bool CheckOpV = false;
 bool CheckOpE = false;
+bool CheckSuc = false;
+bool CheckOpC = false;
 
 [STAThreadAttribute]
 void main(array<String^>^ args)
@@ -47,14 +48,14 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 	for (int i = 0; CheckKey.length() > i; i++) {
 
 		if (isdigit(CheckKey[i])) {
-			CheckOpE = true;
-			CheckOpVE = false;
+			CheckOpC = true;
+			CheckOpV = false;
 
 		}
 		else {
 
-			CheckOpVE = true;
-			CheckOpE = false;
+			CheckOpV = true;
+			CheckOpC = false;
 
 		}
 
@@ -72,7 +73,7 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 
 		}
 		if (ShifrBox->SelectedIndex == 0 || ShifrBox->SelectedIndex == 3) {
-			if (textBox3->Text != "" && CheckOpE == true) {
+			if (textBox3->Text != "" && CheckOpC == true) {
 				key = System::Convert::ToInt32(textBox3->Text);
 				Check = true;
 			}
@@ -81,7 +82,7 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			}
 		}
 		if (ShifrBox->SelectedIndex == 1 || ShifrBox->SelectedIndex == 4) {
-			if (textBox3->Text != "" && CheckOpVE==true) {
+			if (textBox3->Text != "" && CheckOpV==true) {
 				keyvishz = Convert_String_to_string(textBox3->Text, keyvishz);
 				Check = true;
 			}
@@ -90,9 +91,12 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 			}
 		}
 		if (ShifrBox->SelectedIndex == 2 || ShifrBox->SelectedIndex == 5) {
-			if (textBox3->Text != "" && CheckOpVE == true) {
+			if (textBox3->Text != "" && CheckOpV == true && CheckKey.length() > 2) {
 				keyEnigma = Convert_String_to_string(textBox3->Text, keyEnigma);
 				Check = true;
+			}
+			else {
+				MessageBox::Show("Ключ шифра Энигма - это строка(только из букв и состоящая не менее чем из 3-х символов)!", "Ошибка!");
 			}
 		}
 	}
@@ -149,8 +153,8 @@ System::Void Kursach::MyForm::button1_Click(System::Object^ sender, System::Even
 	}
 	if (CheckSuc) {
 		MessageBox::Show("Результат записан в выходной файл!", "Успех!");
-		CheckOpE = false;
-		CheckOpVE = false;
+		CheckOpC = false;
+		CheckOpV = false;
 		CheckSuc = false;
 		Check = false;
 	}
